@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.8",
     "mongoose-validator": "^2.0.2",
-    "validator": "^10.5.0"
+    "validator": "^10.5.0",
+    "dotenv": "^6.0.0"
   }
 }
