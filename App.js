@@ -14,8 +14,6 @@ const database = require('./config/database');
 const kbRoutes = require('./routes/kbRoutes');
 const config = require('./config/database');
 
-const port = 8080;
-
 // DatabaseConnection
 mongoose.connect(config.database);
 
@@ -106,4 +104,4 @@ app.post('/login', (req, res) => {
 });
 
 // server listening at port 8080
-app.listen(port);
+app.listen(database.port);
