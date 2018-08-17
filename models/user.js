@@ -5,23 +5,24 @@ const { isEmail } = require('validator');
 const UserSchema = mongoose.Schema({
   name: {
     type: String,
+    required: String,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
     validate: [isEmail, 'Invalid Email'],
   },
   password: {
     type: String,
     required: true,
   },
-  isAdmin: {
-    type: Boolean,
+  role: {
+    type: Number,
     required: true,
-    default: false,
   },
 });
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('Usermodel', UserSchema);
 const getUserById = (id, callback) => {
   User.findById(id, callback);
 };

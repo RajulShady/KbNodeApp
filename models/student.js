@@ -18,7 +18,7 @@ const StudentSchema = mongoose.Schema({
     unique: true,
   },
   studentId: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
   },
@@ -31,6 +31,8 @@ const StudentSchema = mongoose.Schema({
     required: true,
   },
 });
+
+StudentSchema.index({ '$**': 'text' }); // Indexing for text based search
 
 const Student = mongoose.model('StudentData', StudentSchema);
 module.exports = Student;
@@ -53,6 +55,10 @@ module.exports.getStudentByEmail = (email, callback) => {
 module.exports.getStudentByCourse = (course, callback) => {
   const query = { course };
   Student.findOne(query, callback);
+};
+
+module.exports.searchStudent = (search, callback) => {
+  Student.find({ $text: { $search: search } }, callback);
 };
 
 module.exports.addStudent = (newStudent, callback) => {

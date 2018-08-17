@@ -59,7 +59,7 @@ app.post('/signup', (req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    isAdmin: req.body.isAdmin,
+    role: req.body.role,
   });
 
   addUser(newUser, (err) => {
@@ -85,7 +85,7 @@ app.post('/login', (req, res) => {
       if (isMatch) {
         const payload = {
           email: user.email,
-          isAdmin: user.isAdmin,
+          role: user.role,
         };
         const token = jwt.sign(payload, database.secret, {
           expiresIn: '12h',
