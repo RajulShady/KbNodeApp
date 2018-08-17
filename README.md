@@ -5,7 +5,7 @@ End Points
 USER SIGNUP
 
 https://kilobyte.herokuapp.com/signup
-properties - name, email, password, role(either 1 or 2)
+properties - name, email, password, role(either 1 or 2 - 1 for admin & 2 for subadmin)
 
 USER LOGIN
 
